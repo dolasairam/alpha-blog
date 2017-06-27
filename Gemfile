@@ -43,10 +43,10 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'config/enviroments/development.rb', '>= 3.3.0'
+  gem 'web-console', '>= 3.3.0'
   
 end
-group : production do
+group :production do
 	gem 'pg'
 	gem 'rails_12factor'
 end
