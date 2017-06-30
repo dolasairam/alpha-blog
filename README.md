@@ -1,1 +1,1 @@
-this is the repository for the first alpha-blog app of the complete ruby on rails developor course
+LECTURE 66
