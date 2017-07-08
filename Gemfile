@@ -42,6 +42,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
 end
 
+gem 'will_paginate', '3.1.5'
+gem 'bootstrap-will_paginate', '0.0.10'
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
