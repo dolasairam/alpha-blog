@@ -6,7 +6,8 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
 		get new_category_path
 		assert_template 'categories/new'
 		assert_difference 'Category.count', 1 do
-			post_via_redirect categories_path, category :{name: "sports"}
+			post_via_redirect categories_path, category: {name: "sports"}
+			
 		end
 		
 		assert_template 'categories/index'
@@ -18,7 +19,7 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
 		get new_category_path
 		assert_template 'categories/new'
 		assert_difference 'Category.count' do
-		post categories_path, category :{name: " "}
+		post categories_path, category: {name: " "}
 			end
 		
 		assert_template 'categories/index'
@@ -26,6 +27,11 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
 		assert_select 'div.panel-body'	
 	end
 	
+	test "should redirect create when admin not logged in" do
 	
-
+		assert_no_difference 'Category.count' do
+			post :create, category: {name: "sports")
+			end
+			assert_redirected_to categories_path
+	end
 end
